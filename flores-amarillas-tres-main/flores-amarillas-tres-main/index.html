@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/flowers.png" type="image/x-icon">
+    <title>Flowers</title>
+</head>
+
+<body>
+    <div class="greetings">
+        <span>A</span>
+        <span>B</span>
+        <span>I</span>
+    </div>
+    <div class="description">
+        <span>Un detallito nomas</span>
+    </div>
+    <div class="button">
+        <button class="botones">
+            <a href="flower.html" style="color: #fff;">Tocar</a>
+        </button>
+    </div>
+
+    <!-- Carrusel de imágenes automático -->
+    <div class="carousel">
+        <div class="carousel-inner">
+            <img src="img/uni.png" class="active"> <!-- Primera imagen -->
+            <img src="img/dos.png"> <!-- Segunda imagen -->
+            <img src="img/tres.png"> <!-- Tercera imagen -->
+            <img src="img/cuatro.png"> <!-- Cuarta imagen, puedes añadir más así -->
+            <img src="img/cinco.png"> <!-- Quinta imagen, sigue añadiendo las que desees -->
+            <img src="img/2.png"> <!-- Segunda imagen -->
+            <img src="img/3.png"> <!-- Tercera imagen -->
+            <img src="img/4.png"> <!-- Cuarta imagen, puedes añadir más así -->
+            <img src="img/6.png"> <!-- Quinta imagen, sigue añadiendo las que desees -->
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.carousel img');
+
+        function showImage(index) {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (index + images.length) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        // Cambio automático cada 3 segundos
+        function autoSlide() {
+            showImage(currentIndex + 1);
+        }
+
+        // Mostrar la primera imagen al cargar la página
+        showImage(0);
+
+        // Iniciar el deslizamiento automático
+        setInterval(autoSlide, 3000); // Cambia de imagen cada 3 segundos
+    </script>
+</body>
+
+</html>
